@@ -152,8 +152,7 @@ extension TypedID where Serialized == String {
   public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let string = try container.decode(String.self)
-    if let raw = Self.convert(serialized: string)
-    {
+    if let raw = Self.convert(serialized: string) {
       self.init(raw: raw)
     } else {
       throw DecodingError.dataCorrupted(

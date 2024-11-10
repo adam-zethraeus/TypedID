@@ -1,10 +1,11 @@
 #if canImport(Foundation)
   import Foundation
 
-extension TypedID where Raw == UUID {
+  extension TypedID where Raw == UUID, Serialized == String {
     public init() {
       self.init(raw: UUID())
     }
+
     public static func convert(raw: UUID) -> String { raw.uuidString }
     public static func convert(serialized: String) -> UUID? { UUID(uuidString: serialized) }
   }
